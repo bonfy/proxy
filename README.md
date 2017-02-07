@@ -25,9 +25,9 @@ import urllib2,os;pf='Package Control.sublime-package';ipp=sublime.installed_pac
 
 代理的话输入
 
-> 注意修改 `'http': 'http://http://username:password@proxy:port'` 这段代码
+> 注意修改 `'http': 'http://username:password@proxy:port'` 这段代码
 
 ```python
-import urllib2,os;proxy=urllib2.ProxyHandler({'http': 'http://http://username:password@proxy:port'});opener=urllib2.build_opener(proxy);urllib2.install_opener(opener);pf='Package Control.sublime-package';ipp=sublime.installed_packages_path();os.makedirs(ipp) if not os.path.exists(ipp) else None;open(os.path.join(ipp,pf),'wb').write(urllib2.urlopen('http://sublime.wbond.net/'+pf.replace(' ','%20')).read())
+import urllib2,os;proxy=urllib2.ProxyHandler({'http': 'http://username:password@proxy:port'});opener=urllib2.build_opener(proxy);urllib2.install_opener(opener);pf='Package Control.sublime-package';ipp=sublime.installed_packages_path();os.makedirs(ipp) if not os.path.exists(ipp) else None;open(os.path.join(ipp,pf),'wb').write(urllib2.urlopen('http://sublime.wbond.net/'+pf.replace(' ','%20')).read())
 
 ```
