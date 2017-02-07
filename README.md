@@ -13,3 +13,21 @@ http-proxy=http://username:password@proxy:port
 https-proxy=https://username:password@proxy:port
 strict-ssl=false
 ```
+
+### Sublime-Text2
+
+打开 Sublime-Text2; 菜单 View - Show Console 或者 ctrl + \` 快捷键; 调出 console。将以下 Python 代码粘贴进去并 enter 执行，不出意外即完成安装
+
+不需要代理输入：
+```python
+import urllib2,os;pf='Package Control.sublime-package';ipp=sublime.installed_packages_path();os.makedirs(ipp) if not os.path.exists(ipp) else None;open(os.path.join(ipp,pf),'wb').write(urllib2.urlopen('http://sublime.wbond.net/'+pf.replace(' ','%20')).read())
+```
+
+代理的话输入
+
+> 注意修改 `'http': 'http://http://username:password@proxy:port'` 这段代码
+
+```python
+import urllib2,os;proxy=urllib2.ProxyHandler({'http': 'http://http://username:password@proxy:port'});opener=urllib2.build_opener(proxy);urllib2.install_opener(opener);pf='Package Control.sublime-package';ipp=sublime.installed_packages_path();os.makedirs(ipp) if not os.path.exists(ipp) else None;open(os.path.join(ipp,pf),'wb').write(urllib2.urlopen('http://sublime.wbond.net/'+pf.replace(' ','%20')).read())
+
+```
