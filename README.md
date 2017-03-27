@@ -31,3 +31,21 @@ import urllib2,os;pf='Package Control.sublime-package';ipp=sublime.installed_pac
 import urllib2,os;proxy=urllib2.ProxyHandler({'http': 'http://username:password@proxy:port'});opener=urllib2.build_opener(proxy);urllib2.install_opener(opener);pf='Package Control.sublime-package';ipp=sublime.installed_packages_path();os.makedirs(ipp) if not os.path.exists(ipp) else None;open(os.path.join(ipp,pf),'wb').write(urllib2.urlopen('http://sublime.wbond.net/'+pf.replace(' ','%20')).read())
 
 ```
+
+### Git
+
+`.gitconfig`
+
+```
+[user]
+	name = name
+	email = email
+[http]
+	proxy = "http://user:pwd@proxy:port"
+	sslverify = false
+[https]
+	proxy = "http://user:pwd@proxy:port"
+[core]
+	autocrlf = true
+
+```
